@@ -429,7 +429,9 @@ class CompDoc(object):
                     raise CompDocError("%s corruption: seen[%d] == %d" % (qname, s, self.seen[s]))
             self.seen[s] = seen_id
             tot_found += 1
-            #if tot_found > found_limit:
+            if tot_found > found_limit:
+                found_limit = tot_found
+                
                 # Note: expected size rounded up to higher sector
              #   raise CompDocError(
               #      "%s: size exceeds expected %d bytes; corrupt?"
